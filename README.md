@@ -21,9 +21,17 @@
 	<a href="https://meshtastic.org/docs/">Documentation</a>
 </div>
 
+## Who this is intended for
+
+This is intended for the chatter 2.0, that is called the chatter in the firmware,
+
+Link to the device,
+https://circuitmess.com/blogs/resources/chatter-2-0-build-guide
+if the device does not match up with yours, do not install this on your device.
+
 ## Overview
 
-This repository contains the official device firmware for Meshtastic, an open-source LoRa mesh networking project designed for long-range, low-power communication without relying on internet or cellular infrastructure. The firmware supports various hardware platforms, including ESP32, nRF52, RP2040/RP2350, and Linux-based devices.
+This repository contains the unofficial device firmware for Meshtastic, an open-source LoRa mesh networking project designed for long-range, low-power communication without relying on internet or cellular infrastructure. The firmware supports various hardware platforms, including ESP32, nRF52, RP2040/RP2350, and Linux-based devices.
 
 Meshtastic enables text messaging, location sharing, and telemetry over a decentralized mesh network, making it ideal for outdoor adventures, emergency preparedness, and remote operations.
 
