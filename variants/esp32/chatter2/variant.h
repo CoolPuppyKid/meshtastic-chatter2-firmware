@@ -9,7 +9,6 @@
 
 // Lora
 #define USE_LLCC68 // Original Chatter2 with LLCC68 module
-#define USE_SX1262 // Added for when Lora module is swapped for HT-RA62
 
 #define SX126X_CS 14                 // module's NSS pin
 #define LORA_SCK 16                  // module's SCK pin
@@ -19,7 +18,6 @@
 #define SX126X_BUSY 4                // module's BUSY pin works for both LLCC68 and RA-62 with cut & jumper
 #define SX126X_DIO1 18               // module's DIO1 pin
 #define SX126X_DIO2_AS_RF_SWITCH     // module's DIO2 pin
-#define SX126X_DIO3_TCXO_VOLTAGE 1.8 // module's DIO pin
 #define SX126X_TXEN RADIOLIB_NC
 #define SX126X_RXEN RADIOLIB_NC
 
@@ -33,8 +31,8 @@
 // Buttons
 // #define BUTTON_PIN 36 // Use the WAKE button as the user button
 // I2C
-// #define I2C_SCL 27
-// #define I2C_SDA 26
+#define I2C_SDA -1
+#define I2C_SCL -1
 
 #define SX126X_MAX_POWER 22 // SX126xInterface.cpp defaults to 22 if not defined, but here we define it for good practice
 
@@ -45,12 +43,13 @@
 // ST7735S TFT LCD
 #define HAS_SPI_TFT 1
 #define ST7735S 1 // there are different (sub-)versions of ST7735
-#define ST7735_CS -1
-#define ST7735_RS 33  // DC
 #define ST7735_SDA 26 // MOSI
-#define ST7735_SCK 27
-#define ST7735_RESET 15
-#define ST7735_MISO -1
+#define ST7735_RESET 13
+#define ST7735_RS    33
+#define ST7735_MOSI  26
+#define ST7735_MISO  -1
+#define ST7735_SCK   27
+#define ST7735_CS    15
 #define ST7735_BUSY -1
 #define TFT_BL 32
 #define ST7735_SPI_HOST HSPI_HOST // SPI2_HOST for S3, auto may work too
@@ -70,7 +69,7 @@
 
 // Battery
 
-#define BATTERY_PIN 34 // A battery voltage measurement pin, voltage divider connected here to measure battery voltage
+#define BATTERY_PIN 36 // A battery voltage measurement pin, voltage divider connected here to measure battery voltage
 #define ADC_CHANNEL ADC_CHANNEL_6
 #define ADC_ATTENUATION                                                                                                          \
     ADC_ATTEN_DB_2_5       // 2_5-> 100mv-1250mv, 11-> 150mv-3100mv for ESP32
@@ -89,7 +88,7 @@
 // #define GPS_EN_ACTIVE 1
 #undef GPS_TX_PIN
 #undef GPS_RX_PIN
-#define GPS_TX_PIN 13
+#define GPS_TX_PIN 12
 #define GPS_RX_PIN 2
 
 // keyboard
@@ -103,6 +102,8 @@
 //   You should have no need to modify the code below, nor in pins_arduino.h   //
 //                                                                             //
 /////////////////////////////////////////////////////////////////////////////////
+
+
 
 #define LORA_CS SX126X_CS // FIXME: for some reason both are used in /src
 
@@ -119,6 +120,6 @@
                 // must also define the old name
 // LORA_DIO2 value is never used in src (as we are not using RF95), so no need to define, and if DIO2_AS_RF_SWITCH is set then it
 // cannot serve any extra function even if requested to LORA_DIO3 value is never used in src (as we are not using RF95), so no
-// need to define, and DIO3_AS_TCXO_AT_1V8 is set so it cannot serve any extra function even if requested to (from 13.3.2.1
+// need to define, and DIO3 is not used as a TCXO reference on the stock LLCC68 module (from 13.3.2.1
 // DioxMask in SX1262 datasheet: Note that if DIO2 or DIO3 are used to control the RF Switch or the TCXO, the IRQ will not be
 // generated even if it is mapped to the pins.)
