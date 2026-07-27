@@ -1,4 +1,0 @@
-Processing chatter2 (board: esp32doit-devkit-v1; platform: 
-https://github.com/meshtastic/pioarduino-platform-espressif32/archive/refs/heads/55.03.39.zip; framework: arduino)
---------------------------------------------------------------------------------
-Build interrupted.
